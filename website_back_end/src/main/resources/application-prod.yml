@@ -1,0 +1,13 @@
+server:
+  port: 88
+
+spring:
+  datasource:
+    username: root
+    password: request@root
+    url: jdbc:mysql://www.request404.com:3306/request404?serverTimezone=UTC
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: off

@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/request404?serverTimezone=UTC
+
+  redis:
+    host: www.request404.com
+    password: request@6379
+
+
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: on
