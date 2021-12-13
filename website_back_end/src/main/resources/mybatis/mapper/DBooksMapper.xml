@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hey.request.system.mapper.DBooksMapper">
+  <select id="dBooksAssociationScore" resultMap="finalDBook">
+    SELECT b.`id`,b.`name`,b.`title`,b.`tages`,b.`author`,b.`country`,b.`release_date`,b.`introduction`,b.`cover_url`,b.`publisher`,b.`isbn`,b.`price`,b.`price_source`,b.`pages`,b.`operation_time`,b.`operation_user`,b.`state`,b.`remove_state`,
+    s.`id`,s.`product_id`,s.`product_type`,s.`one_star`,s.`two_star`,s.`three_star`,s.`four_star`,s.`five_star`,s.`total`,s.`score`,s.`seven_visit`,s.`record_date_visit`,s.`today_visit`,s.`yesterday_visit`,s.`post_date`,s.`remove_state`
+    FROM d_books b
+    LEFT JOIN u_score s
+    ON b.`id` = s.`product_id`
+    <where>
+      <trim prefixOverrides="AND">
+        <if test="ew!=null and ew.sqlSegment!=null and ew.sqlSegment != ''">
+          AND ${ew.sqlSegment}
+        </if>
+      </trim>
+      AND b.`remove_state` = 1
+    </where>
+    ORDER BY b.`id` ASC
+  </select>
+
+  <resultMap type="com.hey.request.system.entity.DBooks" id="finalDBook">
+    <id property="id" column="id"/>
+    <result property="name" column="name"/>
+    <result property="title" column="title"/>
+    <result property="tages" column="tages"/>
+    <result property="author" column="author"/>
+    <result property="country" column="country"/>
+    <result property="releaseDate" column="release_date"/>
+    <result property="introduction" column="introduction"/>
+    <result property="coverUrl" column="cover_url"/>
+    <result property="publisher" column="publisher"/>
+    <result property="isbn" column="isbn"/>
+    <result property="price" column="price"/>
+    <result property="priceSource" column="price_source"/>
+    <result property="pages" column="pages"/>
+    <result property="operationTime" column="operation_time"/>
+    <result property="operationUser" column="operation_user"/>
+    <result property="state" column="state"/>
+    <result property="removeState" column="remove_state"/>
+
+
+    <association property="score" javaType="com.hey.request.system.entity.UScore">
+      <id property="productId" column="product_id"/>
+      <result property="productType" column="product_type"/>
+      <result property="oneStar" column="one_star"/>
+      <result property="twoStar" column="two_star"/>
+      <result property="threeStar" column="three_star"/>
+      <result property="fourStar" column="four_star"/>
+      <result property="fiveStar" column="five_star"/>
+      <result property="total" column="total"/>
+      <result property="score" column="score"/>
+      <result property="sevenVisit" column="seven_visit"/>
+      <result property="recordDateVisit" column="record_date_visit"/>
+      <result property="todayVisit" column="today_visit"/>
+      <result property="yesterdayVisit" column="yesterday_visit"/>
+      <result property="postDate" column="post_date"/>
+      <result property="statisticPoint" column="statistic_point"/>
+      <result property="removeState" column="remove_state"/>
+    </association>
+  </resultMap>
+</mapper>

@@ -1,2 +1,4 @@
-package com.hey.request.system.utils.group;public interface UpdateValidGroup {
+package com.hey.request.system.utils.group;
+
+public interface UpdateValidGroup {
 }

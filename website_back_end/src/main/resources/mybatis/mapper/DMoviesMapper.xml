@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hey.request.system.mapper.DMoviesMapper">
+  <select id="dMoviesAssociationScore" resultMap="finalDMovies">
+    SELECT m.`id`,m.`name`,m.`type`,m.`country`,m.`release_date`,m.`director`,m.`writer`,m.`actors`,m.`alternate_name`,m.`minutes`,m.`introduction`,m.`cover_url`,m.`operation_time`,m.`operation_user`,m.`state`,m.`remove_state`,
+    s.`id`,s.`product_id`,s.`product_type`,s.`one_star`,s.`two_star`,s.`three_star`,s.`four_star`,s.`five_star`,s.`total`,s.`score`,s.`seven_visit`,s.`record_date_visit`,s.`today_visit`,s.`yesterday_visit`,s.`post_date`,s.`remove_state`
+    FROM d_movies m
+    LEFT JOIN u_score s
+    ON m.`id` = s.`product_id`
+    <where>
+      <trim prefixOverrides="AND">
+        <if test="ew!=null and ew.sqlSegment!=null and ew.sqlSegment != ''">
+          AND ${ew.sqlSegment}
+        </if>
+      </trim>
+      AND m.`remove_state` = 1
+    </where>
+    ORDER BY m.`id` ASC
+  </select>
+
+  <resultMap type="com.hey.request.system.entity.DMovies" id="finalDMovies">
+    <id property="id" column="id"/>
+    <result property="name" column="name"/>
+    <result property="type" column="type"/>
+    <result property="country" column="country"/>
+    <result property="releaseDate" column="release_date"/>
+    <result property="director" column="director"/>
+    <result property="writer" column="writer"/>
+    <result property="actors" column="actors"/>
+    <result property="alternateName" column="alternate_name"/>
+    <result property="minutes" column="minutes"/>
+    <result property="introduction" column="introduction"/>
+    <result property="coverUrl" column="cover_url"/>
+    <result property="operationTime" column="operation_time"/>
+    <result property="operationUser" column="operation_user"/>
+    <result property="state" column="state"/>
+    <result property="removeState" column="remove_state"/>
+
+
+    <association property="score" javaType="com.hey.request.system.entity.UScore">
+      <id property="productId" column="product_id"/>
+      <result property="productType" column="product_type"/>
+      <result property="oneStar" column="one_star"/>
+      <result property="twoStar" column="two_star"/>
+      <result property="threeStar" column="three_star"/>
+      <result property="fourStar" column="four_star"/>
+      <result property="fiveStar" column="five_star"/>
+      <result property="total" column="total"/>
+      <result property="score" column="score"/>
+      <result property="sevenVisit" column="seven_visit"/>
+      <result property="recordDateVisit" column="record_date_visit"/>
+      <result property="todayVisit" column="today_visit"/>
+      <result property="yesterdayVisit" column="yesterday_visit"/>
+      <result property="postDate" column="post_date"/>
+      <result property="statisticPoint" column="statistic_point"/>
+      <result property="removeState" column="remove_state"/>
+    </association>
+  </resultMap>
+</mapper>

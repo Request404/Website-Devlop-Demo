@@ -22,7 +22,7 @@
     <druid.version>1.1.13</druid.version>
     <httpcore.version>4.4.13</httpcore.version>
     <interceptor.api.version>1.2</interceptor.api.version>
-    <security.jwt.version>1.0.10.RELEASE</security.jwt.version>
+    <jwt.version>1.0.9.RELEASE</jwt.version>
     <oauth.version>2.3.6.RELEASE</oauth.version>
     <oauth.autoconfigure.version>2.3.6.RELEASE</oauth.autoconfigure.version>
   </properties>
@@ -47,9 +47,35 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
       <scope>true</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-jwt</artifactId>
+      <version>${jwt.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt</artifactId>
+      <version>0.9.0</version>
     </dependency>
     <dependency>
       <groupId>com.baomidou</groupId>
@@ -64,12 +90,6 @@
       <groupId>javax.interceptor</groupId>
       <artifactId>javax.interceptor-api</artifactId>
       <version>${interceptor.api.version}</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>fastjson</artifactId>
-      <version>1.2.75</version>
     </dependency>
     <dependency>
       <groupId>com.baomidou</groupId>
@@ -100,6 +120,12 @@
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpcore</artifactId>
       <version>${httpcore.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.75</version>
     </dependency>
   </dependencies>
 

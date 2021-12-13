@@ -1,1 +1,23 @@
-{ "properties": [ ] }
+{
+  "properties": [
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "description": "Jwt密钥."
+    },
+    {
+      "name": "jwt.tokenHeader",
+      "type": "java.lang.String",
+      "description": "Jwt解析请求头."
+    },
+    {
+      "name": "jwt.tokenPrefix",
+      "type": "java.lang.String",
+      "description": "Token解析方式."
+    },
+    {
+      "name": "spring.mail.subject",
+      "type": "java.lang.String",
+      "description": "邮箱主题."
+    }
+  ] }

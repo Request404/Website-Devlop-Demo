@@ -1,4 +1,4 @@
-package com.admin.enterprise.utils;
+package com.hey.request.system.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;

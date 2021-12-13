@@ -9,12 +9,16 @@ spring:
     url: jdbc:mysql://localhost:3306/request404?serverTimezone=UTC
 
   redis:
-    host: www.request404.com
-    password: request@6379
-
-
+    host: #redis 地址
+    password: #redis 密码
 
 springfox:
   documentation:
     swagger-ui:
       enabled: on
+
+jwt:
+  # 密匙Key
+  secret: Request404@Jwt
+  # 配置白名单（不需要认证）
+  antMatchers: /user/account/**, /static/**

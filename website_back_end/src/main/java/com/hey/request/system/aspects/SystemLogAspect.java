@@ -1,4 +1,4 @@
-package com.admin.enterprise.aspects;
+package com.hey.request.system.aspects;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -15,12 +15,12 @@ public class SystemLogAspect {
 
   private final Logger aspectLogger = LoggerFactory.getLogger(SystemLogAspect.class);
 
-  @Pointcut("@annotation(com.admin.enterprise.annotation.SystemLog)")
+  @Pointcut("@annotation(com.hey.request.system.annotation.SystemLog)")
   public void logPointcut(){}
 
   @Before("logPointcut()")
   public void runtimeBefore(JoinPoint joinPoint){
-    aspectLogger.info("============================ before ======================================================");
+    aspectLogger.info("========================================= before =========================================");
     aspectLogger.info(String.valueOf(joinPoint.getSignature()));
     aspectLogger.info(joinPoint.getSignature().getName()+"方法执行了");
     Object[] args = joinPoint.getArgs();
@@ -42,7 +42,7 @@ public class SystemLogAspect {
   @After("logPointcut()")
   public void endRun(JoinPoint joinPoint){
     aspectLogger.info(joinPoint.getSignature().getName()+"方法结束");
-    aspectLogger.info("+++++++++++++++++++++++++++++++ after ++++++++++++++++++++++++++++++++++++++++++++++++++");
+    aspectLogger.info("++++++++++++++++++++++++++++++++++++++++ after ++++++++++++++++++++++++++++++++++++++++++++++++");
 
   }
 

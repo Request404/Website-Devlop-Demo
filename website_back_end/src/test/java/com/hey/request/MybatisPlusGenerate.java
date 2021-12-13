@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Scanner;
-public class MpGenerate {
+public class MybatisPlusGenerate {
   /**
    * <p>
    * 读取控制台内容
@@ -68,7 +68,7 @@ public class MpGenerate {
     // 包配置
     PackageConfig pc = new PackageConfig();
 //    pc.setModuleName(scanner("请输入模块名"));
-    pc.setParent("com.admin.enterprise");
+    pc.setParent("com.hey.request.system");
     pc.setController("controller");
     pc.setService("service");
     pc.setServiceImpl("service.impl");

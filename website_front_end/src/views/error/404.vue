@@ -8,13 +8,13 @@
         <img class="pic-404__child right" src="@/assets/img/404_images/404_cloud.png" alt="404">
       </div>
       <div class="bullshit">
-        <div class="bullshit__oops">人事管理系统!</div>
+        <div class="bullshit__oops">REQUEST 404!</div>
         <div class="bullshit__info">404 Not Found，为您推荐以下网站
           <a style="color:#20a0ff" href="https://wallstreetcn.com" target="_blank">wallstreetcn</a>
         </div>
         <div class="bullshit__headline">{{ message }}</div>
         <div class="bullshit__info">请重新查看你要寻找的页面，或点击返回上一页</div>
-        <a @click="back()" class="bullshit__return-home">返回上一层</a>
+        <a @click="back()" class="bullshit__return-home">返回主页</a>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ export default {
     back() {
       this.$store.commit('needLoading', true);
       setTimeout(() => {
-        this.$router.back()
+        this.$router.push('/')
         this.$store.commit('needLoading', false);
       }, 1500)
     }

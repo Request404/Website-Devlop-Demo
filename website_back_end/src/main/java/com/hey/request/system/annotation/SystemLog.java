@@ -1,4 +1,4 @@
-package com.admin.enterprise.annotation;
+package com.hey.request.system.annotation;
 
 import java.lang.annotation.*;
 

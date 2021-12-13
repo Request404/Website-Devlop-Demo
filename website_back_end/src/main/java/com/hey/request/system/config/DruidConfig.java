@@ -1,4 +1,4 @@
-package com.admin.enterprise.config;
+package com.hey.request.system.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
@@ -18,8 +18,8 @@ public class DruidConfig {
   public ServletRegistrationBean statViewServlet(){
     ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
     HashMap<String, String> map = new HashMap<>();
-    map.put("loginUsername","GuoKeGD");
-    map.put("loginPassword","GuoKe@3306");
+    map.put("loginUsername","root");
+    map.put("loginPassword","123456");
     map.put("allow","");
     bean.setInitParameters(map);
     return bean;

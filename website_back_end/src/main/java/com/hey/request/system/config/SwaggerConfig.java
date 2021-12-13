@@ -1,5 +1,8 @@
-package com.admin.enterprise.config;
+package com.hey.request.system.config;
 
+import com.hey.request.system.aspects.SystemLogAspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,13 +20,17 @@ import springfox.documentation.spring.web.plugins.Docket;
 /*@ConditionalOnProperty(prefix = "swagger", value = {"enable"} ,havingValue = "true")*/
 public class SwaggerConfig {
 
+  private final Logger swaggerLogger = LoggerFactory.getLogger(SwaggerConfig.class);
+
   @Bean
   public Docket createRestApi() {
-    System.out.println("======================Swagger UI====================");
+
+    swaggerLogger.info("======================Swagger UI====================");
+
     return new Docket(DocumentationType.OAS_30)
         .apiInfo(apiInfo())
         .select()
-        .apis(RequestHandlerSelectors.basePackage("com.admin.enterprise.controller"))
+        .apis(RequestHandlerSelectors.basePackage("com.hey.request.system.controller"))
 //        .apis(RequestHandlerSelectors.withMethodAnnotation(Api.class))
         .paths(PathSelectors.any())
         .build();
@@ -31,9 +38,9 @@ public class SwaggerConfig {
 
   private ApiInfo apiInfo() {
     return new ApiInfoBuilder()
-        .title("人事管理系统")
-        .description("人事管理系统")
-        .contact(new Contact("Sophie","","Sophie@163.com"))
+        .title("Request404")
+        .description("Request404")
+        .contact(new Contact("Request404","","request404@qq.com"))
         .version("1.0.0")
         .build();
   }

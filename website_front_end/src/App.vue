@@ -1,32 +1,31 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app"
+       v-loading="$store.state.loading"
+       element-loading-text="加载中"
+       element-loading-background="rgba(255, 255, 255, 0.5)">
     <router-view/>
   </div>
 </template>
 
+<script>
+
+export default {
+  name: 'App',
+  components: {}
+}
+</script>
+
 <style lang="scss">
+
+@import "./assets/css/common.scss";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.el-loading-mask {
+  background-color: rgba(220, 220, 220, .6);
 }
 </style>
